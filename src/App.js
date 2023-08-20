@@ -6,9 +6,19 @@ import ModelIcons from "./components/ModelIcons";
 import WhyBuy from "./components/WhyBuy";
 
 function App() {
+  const navItems = [
+    {
+      label: "Stock",
+      link: "/stock",
+    },
+    {
+      label: "About",
+      link: "/about",
+    },
+  ];
   return (
     <div className="App">
-      <Navbar />
+      <Navbar links={navItems} />
       <br />
       <Home />
       <br />
