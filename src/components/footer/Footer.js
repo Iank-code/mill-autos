@@ -11,7 +11,7 @@ import {
   IconBrandYoutube,
   IconBrandInstagram,
 } from "@tabler/icons-react";
-// import { MantineLogo } from '@mantine/ds';
+import { NavLink } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -146,16 +146,23 @@ export default function Footer({ data }) {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          {/* <MantineLogo size={30} /> */}
+          <NavLink
+            to="/"
+            style={{
+              color: "red",
+            }}
+          >
+            MILL AUTOS
+          </NavLink>
           <Text size="xs" color="dimmed" className={classes.description}>
-            Build fully functional accessible web applications faster than ever
+            Get your car today and make your dream come true
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2020 mantine.dev. All rights reserved.
+          © 2023 Mill Autos. All rights reserved.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
