@@ -4,7 +4,7 @@ import "./index.css";
 import "./assets/main.css";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import userReducer from './components/hooks/userReducer'
+import userReducer from "./components/hooks/userReducer";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Signup from "./components/Signup";

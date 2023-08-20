@@ -1,12 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import ModelIcons from "./components/ModelIcons";
 import WhyBuy from "./components/WhyBuy";
+import Footer from "./components/footer/Footer";
 
 function App() {
-  const navItems = [
+  const links = [
     {
       label: "Stock",
       link: "/stock",
@@ -16,14 +16,84 @@ function App() {
       link: "/about",
     },
   ];
+
+  // Footer data
+  const data = {
+    data: [
+      {
+        title: "About",
+        links: [
+          {
+            label: "Features",
+            link: "#",
+          },
+          {
+            label: "Pricing",
+            link: "#",
+          },
+          {
+            label: "Support",
+            link: "#",
+          },
+          {
+            label: "Forums",
+            link: "#",
+          },
+        ],
+      },
+      {
+        title: "Project",
+        links: [
+          {
+            label: "Contribute",
+            link: "#",
+          },
+          {
+            label: "Media assets",
+            link: "#",
+          },
+          {
+            label: "Changelog",
+            link: "#",
+          },
+          {
+            label: "Releases",
+            link: "#",
+          },
+        ],
+      },
+      {
+        title: "Community",
+        links: [
+          {
+            label: "Join Discord",
+            link: "#",
+          },
+          {
+            label: "Follow on Twitter",
+            link: "#",
+          },
+          {
+            label: "Email newsletter",
+            link: "#",
+          },
+          {
+            label: "GitHub discussions",
+            link: "#",
+          },
+        ],
+      },
+    ],
+  };
   return (
     <div className="App">
-      <Navbar links={navItems} />
+      <Navbar links={links} />
       <br />
       <Home />
       <br />
       <ModelIcons />
-      <WhyBuy />
+      {/* <WhyBuy /> */}
+      <Footer data={data} />
     </div>
   );
 }
