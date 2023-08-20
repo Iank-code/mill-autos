@@ -22,13 +22,16 @@ function OurStock() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://mill-auto-api.onrender.com/cars", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // mode: "no-cors",
-    })
+    fetch(
+      /*"https://mill-auto-api.onrender.com/cars" */ "http://localhost:5000/cars",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // mode: "no-cors",
+      }
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");

@@ -6,7 +6,6 @@ import Login from "./Login";
 import { useSelector } from "react-redux";
 
 function Navbar() {
-  
   const navigate = useNavigate();
   const [selectRegister, setSelectRegister] = useState(false);
   const [login, setLogin] = useState(false);
@@ -25,7 +24,6 @@ function Navbar() {
     navigate("/register");
     setSelectRegister(true);
   };
-
 
   const resetUserData = () => ({
     type: "RESET_USER_DATA",
@@ -52,7 +50,7 @@ function Navbar() {
           <Link to="/contact">Contacts</Link>
         </div>
 
-        {login ? (
+        {/* {login ? (
           <>
             <button
               style={{
@@ -104,7 +102,7 @@ function Navbar() {
             </button>
             <button onClick={() => gotTOSignUp(setLogin)}>Signup</button>
           </div>
-        )}
+        )} */}
       </nav>
     </div>
   );
