@@ -1,7 +1,8 @@
 // import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import { useState, useEffect } from "react";
-import FetchedData from "./FetchedData";
+import FetchedData from "../../components/FetchedData";
+import { links } from "../../helpers/links.helpers";
 
 /*
   useEffect(() => {
@@ -46,7 +47,6 @@ function OurStock() {
       });
   }, []);
 
-
   let filteredData = data.filter((item) => {
     return (
       // item.brand.toLowerCase().includes(searchedData.toLowerCase()) ||
@@ -57,7 +57,7 @@ function OurStock() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar links={links} />
 
       <div className="fetchedData">
         <div>

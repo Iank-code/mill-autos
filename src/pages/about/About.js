@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import "./about.css";
 const About = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar links={links} />
       <div className="about-container">
         <h2>About Us</h2>
         <p>

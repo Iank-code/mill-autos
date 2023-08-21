@@ -46,10 +46,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+      color: "red"
     },
   },
 
@@ -67,10 +64,10 @@ const useStyles = createStyles((theme) => ({
 
 export default function Navbar({ links }) {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState();
   const { classes, cx } = useStyles();
 
-  const items = links.map((link) => (
+  const items = links && links.map((link) => (
     <NavLink
       key={link.label}
       href={link.link}

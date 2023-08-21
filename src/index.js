@@ -7,15 +7,17 @@ import { Provider } from "react-redux";
 import userReducer from "./components/hooks/userReducer";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Signup from "./components/Signup";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./components/Login";
 import PasswordReset from "./components/PasswordReset";
-import OurStock from "./components/OurStock";
-import Contact from "./components/Contact";
-import About from "./components/About";
+import OurStock from "./pages/stock/OurStock";
 import CarDetails from "./components/CarDetails";
 import AdminIndex from "./components/admin/AdminIndex";
+
+// Links for pages
+import Signup from "./pages/auth/Signup";
+import Login from "./pages/auth/Login";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
 
 const store = createStore(
   userReducer,

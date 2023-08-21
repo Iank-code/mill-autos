@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Navbar from "./Navbar";
-import {useDispatch} from "react-redux"
+import Navbar from "../../components/navbar/Navbar";
+import { useDispatch } from "react-redux";
+import { links } from "../../helpers/links.helpers";
 
 function Login() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -21,7 +22,7 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData)
+    console.log(formData);
     fetch("https://mill-auto-api.onrender.com/login", {
       method: "POST",
       headers: {
@@ -44,7 +45,7 @@ function Login() {
 
   return (
     <>
-      <Navbar />
+      <Navbar links={links} />
       <div className="signUpContainer active">
         <h1 className="text-center mb-4">Login</h1>
 
@@ -103,4 +104,3 @@ function Login() {
 }
 
 export default Login;
-

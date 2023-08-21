@@ -1,22 +1,12 @@
 import "./App.css";
 import Home from "./components/Home";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import ModelIcons from "./components/ModelIcons";
 import WhyBuy from "./components/WhyBuy";
 import Footer from "./components/footer/Footer";
+import { links } from "./helpers/links.helpers";
 
 function App() {
-  const links = [
-    {
-      label: "Stock",
-      link: "/stock",
-    },
-    {
-      label: "About",
-      link: "/about",
-    },
-  ];
-
   // Footer data
   const data = {
     data: [

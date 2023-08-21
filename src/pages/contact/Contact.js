@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import "./Contact.css";
+import {links} from "../../helpers/links.helpers"
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -16,7 +18,7 @@ const Contact = () => {
   };
   return (
     <div>
-      <Navbar />
+      <Navbar links={links} />
       <div className="contact-form-container">
         <h2>Contact Us</h2>
         <form onSubmit={handleSubmit}>

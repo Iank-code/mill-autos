@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate, Link,useLocation } from "react-router-dom";
-import Navbar from "./Navbar";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
 import { useDispatch } from "react-redux";
+import {links} from "../../helpers/links.helpers"
 //
 function Signup(props) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const location = useLocation();
-  
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -22,7 +23,6 @@ function Signup(props) {
       [e.target.name]: e.target.value,
     });
   }
-
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -49,7 +49,7 @@ function Signup(props) {
   // added form to enable user to enter their credials and sign up
   return (
     <>
-      <Navbar />
+      <Navbar links={links} />
       <div className="signUpContainer active">
         {/* <Link
           style={{
