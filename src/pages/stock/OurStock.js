@@ -2,7 +2,8 @@
 import Navbar from "../../components/navbar/Navbar";
 import { useState, useEffect } from "react";
 import FetchedData from "../../components/FetchedData";
-import { links } from "../../helpers/links.helpers";
+import { navbar_links, footer_links } from "../../helpers/links.helpers";
+import Footer from "../../components/footer/Footer";
 
 /*
   useEffect(() => {
@@ -57,7 +58,7 @@ function OurStock() {
 
   return (
     <div>
-      <Navbar links={links} />
+      <Navbar links={navbar_links} />
 
       <div className="fetchedData">
         <div>
@@ -84,6 +85,8 @@ function OurStock() {
           );
         })}
       </div>
+
+      <Footer data={footer_links} />
     </div>
   );
 }

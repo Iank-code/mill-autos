@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 import { useDispatch } from "react-redux";
-import { links } from "../../helpers/links.helpers";
+import { navbar_links, footer_links } from "../../helpers/links.helpers";
 
 function Login() {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function Login() {
 
   return (
     <>
-      <Navbar links={links} />
+      <Navbar links={navbar_links} />
       <div className="signUpContainer active">
         <h1 className="text-center mb-4">Login</h1>
 
@@ -99,6 +100,7 @@ function Login() {
           </p>
         </form>
       </div>
+      <Footer data={footer_links} />
     </>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import "./Contact.css";
-import {links} from "../../helpers/links.helpers"
+import { navbar_links, footer_links } from "../../helpers/links.helpers";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const Contact = () => {
   };
   return (
     <div>
-      <Navbar links={links} />
+      <Navbar links={navbar_links} />
       <div className="contact-form-container">
         <h2>Contact Us</h2>
         <form onSubmit={handleSubmit}>
@@ -51,6 +52,7 @@ const Contact = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
+      <Footer data={footer_links} />
     </div>
   );
 };

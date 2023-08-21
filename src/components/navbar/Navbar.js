@@ -46,7 +46,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     "&:hover": {
-      color: "red"
+      color: "red",
     },
   },
 
@@ -67,22 +67,19 @@ export default function Navbar({ links }) {
   const [active, setActive] = useState();
   const { classes, cx } = useStyles();
 
-  const items = links && links.map((link) => (
-    <Link
-      key={link.label}
-      to={link.link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
-      })}
-      // onClick={(event) => {
-      //   event.preventDefault();
-      //   setActive(link.link);
-      //   close()
-      // }}
-    >
-      {link.label}
-    </Link>
-  ));
+  const items =
+    links &&
+    links.map((link) => (
+      <Link
+        key={link.label}
+        to={link.link}
+        className={cx(classes.link, {
+          [classes.linkActive]: active === link.link,
+        })}
+      >
+        {link.label}
+      </Link>
+    ));
 
   return (
     <Header height={60} mb={120}>
@@ -105,15 +102,14 @@ export default function Navbar({ links }) {
           className={classes.burger}
           size="sm"
         />
-
       </Container>
-        <Transition transition="pop-top-right" duration={200} mounted={opened}>
-          {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
-              {items}
-            </Paper>
-          )}
-        </Transition>
+      <Transition transition="pop-top-right" duration={200} mounted={opened}>
+        {(styles) => (
+          <Paper className={classes.dropdown} withBorder style={styles}>
+            {items}
+          </Paper>
+        )}
+      </Transition>
     </Header>
   );
 }

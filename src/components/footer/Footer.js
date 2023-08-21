@@ -112,13 +112,6 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-// interface FooterLinksProps {
-//   data: {
-//     title: string;
-//     links: { label: string; link: string }[];
-//   }[];
-// }
-
 export default function Footer({ data }) {
   const { classes } = useStyles();
 

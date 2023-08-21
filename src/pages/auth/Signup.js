@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 import { useDispatch } from "react-redux";
-import { links } from "../../helpers/links.helpers";
+import { navbar_links, footer_links } from "../../helpers/links.helpers";
 function Signup(props) {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -48,7 +49,7 @@ function Signup(props) {
   // added form to enable user to enter their credials and sign up
   return (
     <>
-      <Navbar links={links} />
+      <Navbar links={navbar_links} />
       <div className="signUpContainer active">
         {/* <Link
           style={{
@@ -122,6 +123,7 @@ function Signup(props) {
           Login
         </button>
       </div>
+      <Footer data={footer_links} />
     </>
   );
 }

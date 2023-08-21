@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 import "./about.css";
-import {links} from "../../helpers/links.helpers"
+import { navbar_links, footer_links } from "../../helpers/links.helpers";
 
 const About = () => {
   return (
     <div>
-      <Navbar links={links} />
+      <Navbar links={navbar_links} />
       <div className="about-container">
         <h2>About Us</h2>
         <p>
@@ -32,6 +33,7 @@ const About = () => {
           the best place to buy a car.
         </p>
       </div>
+      <Footer data={footer_links} />
     </div>
   );
 };
