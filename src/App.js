@@ -81,6 +81,8 @@ function App() {
       <br />
       <Home />
       <br />
+      <br />
+      <br />
       <ModelIcons />
       {/* <WhyBuy /> */}
       <Footer data={data} />

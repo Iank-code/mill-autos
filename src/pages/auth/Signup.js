@@ -3,7 +3,6 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import { useDispatch } from "react-redux";
 import { links } from "../../helpers/links.helpers";
-//
 function Signup(props) {
   const dispatch = useDispatch();
   const location = useLocation();

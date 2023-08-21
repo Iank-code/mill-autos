@@ -10,7 +10,7 @@ import {
   rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -68,20 +68,20 @@ export default function Navbar({ links }) {
   const { classes, cx } = useStyles();
 
   const items = links && links.map((link) => (
-    <NavLink
+    <Link
       key={link.label}
-      href={link.link}
+      to={link.link}
       className={cx(classes.link, {
         [classes.linkActive]: active === link.link,
       })}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-        close()
-      }}
+      // onClick={(event) => {
+      //   event.preventDefault();
+      //   setActive(link.link);
+      //   close()
+      // }}
     >
       {link.label}
-    </NavLink>
+    </Link>
   ));
 
   return (
