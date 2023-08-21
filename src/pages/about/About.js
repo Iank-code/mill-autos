@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "../../components/navbar/Navbar";
 import "./about.css";
+import {links} from "../../helpers/links.helpers"
+
 const About = () => {
   return (
     <div>
