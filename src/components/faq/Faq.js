@@ -1,4 +1,5 @@
 import { Container, Title, Accordion, createStyles, rem } from "@mantine/core";
+import { faq_info } from "../../helpers/faq.helpers";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -32,38 +33,19 @@ export function FaqSimple() {
       </Title>
 
       <Accordion variant="separated">
-        <Accordion.Item className={classes.item} value="reset-password">
-          <Accordion.Control>How can I reset my password?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="another-account">
-          <Accordion.Control>
-            Can I create more that one account?
-          </Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="newsletter">
-          <Accordion.Control>
-            How can I subscribe to monthly newsletter?
-          </Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="credit-card">
-          <Accordion.Control>
-            Do you store credit card information securely?
-          </Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="payment">
-          <Accordion.Control>
-            What payment systems to you work with?
-          </Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
+        {faq_info &&
+          faq_info.map((faq, index) => {
+            return (
+              <Accordion.Item
+                key={index}
+                className={classes.item}
+                value={faq.value}
+              >
+                <Accordion.Control>{faq.info}</Accordion.Control>
+                <Accordion.Panel>{faq.placeholder}</Accordion.Panel>
+              </Accordion.Item>
+            );
+          })}
       </Accordion>
     </Container>
   );

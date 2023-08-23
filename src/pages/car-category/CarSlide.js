@@ -10,7 +10,7 @@ export default function CarSlide() {
       <div className="carCategories">
         {car_category &&
           car_category.map((car, index) => (
-            <img src={car.image} alt="" srcset="" key={index} />
+            <img src={car.image} alt="" key={index} />
           ))}
       </div>
     </div>
