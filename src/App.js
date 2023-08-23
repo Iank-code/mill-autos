@@ -6,6 +6,7 @@ import WhyBuy from "./components/WhyBuy";
 import CarSlide from "./pages/car-category/CarSlide";
 import Footer from "./components/footer/Footer";
 import { navbar_links, footer_links } from "./helpers/links.helpers";
+import { FaqSimple } from "./components/faq/Faq";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <br />
       <ModelIcons />
       <CarSlide />
+      <FaqSimple/>
       {/* <WhyBuy /> */}
       <Footer data={footer_links} />
     </div>
