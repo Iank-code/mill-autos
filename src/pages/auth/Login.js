@@ -78,12 +78,13 @@ export default function Login() {
             </Anchor>
           </Group>
 
-
-          <button style={{
-            backgroundColorolor: "blue",
-            color: "white",
-            width: "100vw"
-          }}>
+          <button
+            style={{
+              backgroundColorolor: "blue",
+              color: "white",
+              width: "100vw",
+            }}
+          >
             Sign in
           </button>
         </Paper>

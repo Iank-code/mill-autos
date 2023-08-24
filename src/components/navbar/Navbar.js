@@ -12,7 +12,30 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { Link, NavLink } from "react-router-dom";
 
+const HEADER_HEIGHT = rem(60);
+
 const useStyles = createStyles((theme) => ({
+  root: {
+    position: "relative",
+    zIndex: 1,
+  },
+
+  dropdown: {
+    position: "absolute",
+    top: HEADER_HEIGHT,
+    left: 0,
+    right: 0,
+    zIndex: 99,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopWidth: 0,
+    overflow: "hidden",
+
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
+    },
+  },
+
   header: {
     display: "flex",
     justifyContent: "space-between",
@@ -21,13 +44,13 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
-    [theme.fn.smallerThan("xs")]: {
+    [theme.fn.smallerThan("sm")]: {
       display: "none",
     },
   },
 
   burger: {
-    [theme.fn.largerThan("xs")]: {
+    [theme.fn.largerThan("sm")]: {
       display: "none",
     },
   },
@@ -46,18 +69,22 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     "&:hover": {
-      color: "red",
+      backgroundColor:
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[6]
+          : theme.colors.gray[0],
+    },
+
+    [theme.fn.smallerThan("sm")]: {
+      borderRadius: 0,
+      padding: theme.spacing.md,
     },
   },
 
   linkActive: {
     "&, &:hover": {
-      backgroundColor: theme.fn.variant({
-        variant: "light",
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
+      backgroundColor: "red",
+      color: "#white",
     },
   },
 }));
@@ -82,7 +109,7 @@ export default function Navbar({ links }) {
     ));
 
   return (
-    <Header height={60} mb={120}>
+    <Header height={HEADER_HEIGHT} mb={120}>
       <Container className={classes.header}>
         <NavLink
           to="/"
@@ -102,14 +129,15 @@ export default function Navbar({ links }) {
           className={classes.burger}
           size="sm"
         />
+
+        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+          {(styles) => (
+            <Paper className={classes.dropdown} withBorder style={styles}>
+              {items}
+            </Paper>
+          )}
+        </Transition>
       </Container>
-      <Transition transition="pop-top-right" duration={200} mounted={opened}>
-        {(styles) => (
-          <Paper className={classes.dropdown} withBorder style={styles}>
-            {items}
-          </Paper>
-        )}
-      </Transition>
     </Header>
   );
 }
