@@ -1,3 +1,9 @@
+
+.wrapper{
+  margin: 2em 0;
+}
+
+
 .carCategories {
   display: flex;
   cursor: pointer;

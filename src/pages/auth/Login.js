@@ -5,104 +5,91 @@ import Footer from "../../components/footer/Footer";
 import { useDispatch } from "react-redux";
 import { navbar_links, footer_links } from "../../helpers/links.helpers";
 
-function Login() {
+import {
+  TextInput,
+  PasswordInput,
+  Checkbox,
+  Anchor,
+  Paper,
+  Title,
+  Text,
+  Container,
+  Group,
+  Button,
+} from "@mantine/core";
+
+export default function Login() {
   const dispatch = useDispatch();
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
 
-  let navigate = useNavigate();
-
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formData);
-    fetch("https://mill-auto-api.onrender.com/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          console.log(res.status);
-        }
-        console.log(res.status);
-        dispatch({ type: "name", payload: formData.username });
-        navigate("/");
-        return res.json();
-      })
-      .then((data) => console.log(data));
-  }
-  // added form in the login
-
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log(formData);
+  //   fetch("https://mill-auto-api.onrender.com/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(formData),
+  //   })
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         console.log(res.status);
+  //       }
+  //       console.log(res.status);
+  //       dispatch({ type: "name", payload: formData.username });
+  //       navigate("/");
+  //       return res.json();
+  //     })
+  //     .then((data) => console.log(data));
+  // }
   return (
     <>
       <Navbar links={navbar_links} />
-      <div className="signUpContainer active">
-        <h1 className="text-center mb-4">Login</h1>
 
-        <form onSubmit={handleSubmit}>
-          <div className="row justify-content-center">
-            <div className="form-group mb-2 col-md-4">
-              <input
-                type="username"
-                placeholder="username"
-                name="username"
-                id="username"
-                className="form-control"
-                onChange={handleChange}
-                value={formData.username}
-              />
-            </div>
-          </div>
-          <div className="row justify-content-center">
-            <div className="form-group mb-4 col-md-4">
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                id="password"
-                className="form-control"
-                onChange={handleChange}
-                value={formData.password}
-              />
-            </div>
-          </div>
+      <Container size={420} my={40}>
+        <Title
+          align="center"
+          sx={(theme) => ({
+            fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+            fontWeight: 900,
+          })}
+        >
+          Welcome back!
+        </Title>
+        <Text color="dimmed" size="sm" align="center" mt={5}>
+          Do not have an account yet?{" "}
+          <Anchor size="sm" component="button">
+            Create account
+          </Anchor>
+        </Text>
 
-          <button type="submit" className="loginNav">
-            Submit
+        <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+          <TextInput label="Email" placeholder="you@mantine.dev" required />
+          <PasswordInput
+            label="Password"
+            placeholder="Your password"
+            required
+            mt="md"
+          />
+          <Group position="apart" mt="lg">
+            <Checkbox label="Remember me" />
+            <Anchor component="button" size="sm">
+              Forgot password?
+            </Anchor>
+          </Group>
+
+
+          <button style={{
+            backgroundColorolor: "blue",
+            color: "white",
+            width: "100vw"
+          }}>
+            Sign in
           </button>
+        </Paper>
+      </Container>
 
-          <p>Haven't Registered? Sign up here</p>
-          <button className="loginNav" onClick={() => navigate("/register")}>
-            Register
-          </button>
-          <p>
-            Forgot password? Click{" "}
-            <Link
-              style={{
-                color: "green",
-              }}
-              to="/reset"
-            >
-              Here
-            </Link>{" "}
-            to reset
-          </p>
-        </form>
-      </div>
       <Footer data={footer_links} />
     </>
   );
 }
-
-export default Login;
