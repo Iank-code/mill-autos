@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { navbar_links, footer_links } from "../../helpers/links.helpers";
 
 import {
+  rem,
+  createStyles,
   TextInput,
   PasswordInput,
   Checkbox,
@@ -18,8 +20,30 @@ import {
   Button,
 } from "@mantine/core";
 
+const useStyles = createStyles((theme) => ({
+  title: {
+    fontSize: rem(26),
+    fontWeight: 900,
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+  },
+
+  controls: {
+    [theme.fn.smallerThan("xs")]: {
+      flexDirection: "column-reverse",
+    },
+  },
+
+  control: {
+    [theme.fn.smallerThan("xs")]: {
+      width: "100%",
+      textAlign: "center",
+    },
+  },
+}));
+
 export default function Login() {
   const dispatch = useDispatch();
+  const { classes } = useStyles();
 
   // function handleSubmit(e) {
   //   e.preventDefault();
@@ -78,15 +102,15 @@ export default function Login() {
             </Anchor>
           </Group>
 
-          <button
+          <Button
+            className={classes.control}
             style={{
-              backgroundColorolor: "blue",
-              color: "white",
-              width: "100vw",
+              margin: "1rem 0",
+              backgroundColor: "blue",
             }}
           >
             Sign in
-          </button>
+          </Button>
         </Paper>
       </Container>
 
