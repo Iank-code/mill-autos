@@ -13,6 +13,7 @@ import {
   rem,
 } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
+import { NavLink } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -53,7 +54,9 @@ export default function PasswordReset() {
           <Anchor color="dimmed" size="sm" className={classes.control}>
             <Center inline>
               <IconArrowLeft size={rem(12)} stroke={1.5} />
-              <button ml={5}>Back to the login page</button>
+              <button ml={5}>
+                <NavLink to="/login">Back to the login page</NavLink>
+              </button>
             </Center>
           </Anchor>
           <Button
