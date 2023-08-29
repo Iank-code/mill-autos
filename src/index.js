@@ -8,7 +8,6 @@ import userReducer from "./components/hooks/userReducer";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PasswordReset from "./components/PasswordReset";
 import OurStock from "./pages/stock/OurStock";
 import CarDetails from "./components/CarDetails";
 import AdminIndex from "./components/admin/AdminIndex";
@@ -18,6 +17,7 @@ import Signup from "./pages/auth/Signup";
 import Login from "./pages/auth/Login";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
+import PasswordReset from "./pages/password-reset/PasswordReset";
 
 const store = createStore(
   userReducer,

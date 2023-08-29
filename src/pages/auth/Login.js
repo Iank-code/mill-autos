@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import { useDispatch } from "react-redux";
@@ -74,7 +74,7 @@ export default function Login() {
           <Group position="apart" mt="lg">
             <Checkbox label="Remember me" />
             <Anchor component="button" size="sm">
-              Forgot password?
+              <NavLink to="/reset">Forgot password?</NavLink>
             </Anchor>
           </Group>
 
