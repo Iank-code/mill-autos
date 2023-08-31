@@ -1,4 +1,3 @@
-
 // import { useDispatch } from "react-redux";
 // import { navbar_links, footer_links } from "../../helpers/links.helpers";
 // function Signup(props) {
@@ -197,9 +196,9 @@ export default function Signup() {
           Welcome back!
         </Title>
         <Text color="dimmed" size="sm" align="center" mt={5}>
-          Do not have an account yet?{" "}
+          Have an account yet?{" "}
           <Anchor size="sm" component="button">
-            Create account
+            <NavLink to="/login">Login</NavLink>
           </Anchor>
         </Text>
 
