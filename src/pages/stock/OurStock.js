@@ -25,7 +25,7 @@ function OurStock() {
 
   useEffect(() => {
     fetch(
-      /*"https://mill-auto-api.onrender.com/cars" */ "http://localhost:5000/cars",
+      /*"https://mill-auto/-api.onrender.com/cars" */ "http://localhost:5000/cars",
       {
         method: "GET",
         headers: {
